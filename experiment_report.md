@@ -17,9 +17,9 @@ Chạy `agent_simulation.py` với 2 bộ dữ liệu và ghi lại kết quả:
 
 ---
 
-## 2. Phân tích & nhận xét
+## 2. Phan tich & nhan xet
 
-### Tại sao Agent trả lời sai khi dùng Garbage Data?
+### Tai sao Agent tra loi sai khi dung Garbage Data?
 
 Khi dùng garbage data, Agent không chỉ trả lời kém chính xác mà còn có thể bị crash vì dữ liệu không đạt chuẩn. Đầu tiên, sai kiểu dữ liệu ở cột `price` (chuỗi "ten dollars") làm pandas không thể so sánh giá trị lớn nhất một cách ổn định, dẫn đến lỗi runtime trong nhiều trường hợp. Thứ hai, duplicate ID làm mơ hồ nguồn gốc dữ liệu và có thể gây trùng lặp thông tin khi truy vấn. Thứ ba, outlier rất lớn như giá 999999 có thể đánh lừa mô hình ra quyết định sai, ưu tiên sản phẩm bất thường thay vì giá trị thực. Cuối cùng, null values ở `id` và `category` làm mất ngữ cảnh và giảm khả năng lọc dữ liệu đúng nhóm. Tất cả lỗi này cho thấy chất lượng dữ liệu là điều kiện tiên quyết để Agent hoạt động ổn định.
 
